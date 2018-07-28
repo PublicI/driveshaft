@@ -18,6 +18,7 @@ RUN apk --update add --virtual .build-deps \
         libxml2 libxslt-dev git \
       && bundle install --jobs `grep -c '^processor' /proc/cpuinfo` \
       && apk del .build-deps
+      && apk add bash
 
 # Install npm packages
 COPY package.json /usr/src/app/
